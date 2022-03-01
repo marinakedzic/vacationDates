@@ -20,10 +20,8 @@
                 <tbody>
                 <th>Vacation days</th>
                 <th th:text="${hello}"></th>
-                <tr th:each="users :${listusers}">
-                    <td th:text="${users.title}"></td>
-                    <td th:text="${users.description}"></td>
-                    <td th:text="${hello}"></td>
+                <tr th:each="employee :${employees}">
+                    <td th:text="${employee.employee}"></td>
                 </tbody>
 
             </table>

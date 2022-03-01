@@ -1,5 +1,6 @@
 package com.marina.vacationDatesDB.controller;
 
+import com.marina.vacationDatesDB.model.TotalVacationDays;
 import com.marina.vacationDatesDB.service.TotalVacationDaysService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -17,8 +18,8 @@ public class TotalVacationDaysController {
     TotalVacationDaysService totalVacationDaysService;
 
     @RequestMapping(value = {"/employees"}, method = RequestMethod.GET)
-    public List<String> findAllEmployees(){
-        List<String> listusers = totalVacationDaysService.findAllEmployees();
+    public List<TotalVacationDays> findAllEmployees(){
+        List<TotalVacationDays> listusers = totalVacationDaysService.findAllEmployees();
         return listusers;
     }
 

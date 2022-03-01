@@ -21,8 +21,8 @@ public class TotalVacationDaysService {
     public List<TotalVacationDays> findTotalVacationDays() {
         return totalVacationDaysRepository.findAll();
     }
-    public List<String> findAllEmployees() {
-        return totalVacationDaysRepository.findAllEmployees();
+    public List<TotalVacationDays> findAllEmployees() {
+        return totalVacationDaysRepository.findAll();
     }
     public List <Integer> findTotalVacationDaysByYear(Integer year){
         return totalVacationDaysRepository.findTotalVacationDaysByYear(year);
