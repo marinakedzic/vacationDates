@@ -9,7 +9,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@CrossOrigin("http://localhost:8080")
 @RestController
 @RequestMapping("/totalDays")
 public class TotalVacationDaysController {
