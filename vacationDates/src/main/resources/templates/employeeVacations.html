@@ -12,12 +12,18 @@
             <table class="container">
                 <thead>
                 <tr>
-                    <th>Total Vacation days</th>
+                    <th>Employee</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
 
                 </tr>
                 </thead>
                 <tbody>
-                <th th:text="${total}"></th>
+                <td th:text="${name}"></td>
+                <tr th:each="day :${days}">
+                    <td></td>
+                    <td th:text="${day.vacationStartDate}"></td>
+                    <td th:text="${day.vacationEndDate}"></td>
                 </tbody>
 
             </table>

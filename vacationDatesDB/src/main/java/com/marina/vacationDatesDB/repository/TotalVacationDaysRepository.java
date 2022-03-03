@@ -14,8 +14,8 @@ public interface TotalVacationDaysRepository extends JpaRepository<TotalVacation
     @Query(value=" SELECT DISTINCT total_vacation_days.employee FROM vacationdates.total_vacation_days", nativeQuery=true)
     @Transactional
     List <String> findAllEmployees();
-    @Query(value=" SELECT total_vacation_days.vacation_days FROM vacationdates.total_vacation_days"
+    @Query(value=" SELECT * FROM vacationdates.total_vacation_days"
             + " where total_vacation_days.year=?1 ", nativeQuery=true)
     @Transactional
-    List<Integer> findTotalVacationDaysByYear (@Param("year") Integer year);
+    List<TotalVacationDays> findTotalVacationDaysByYear (@Param("year") Integer year);
 }

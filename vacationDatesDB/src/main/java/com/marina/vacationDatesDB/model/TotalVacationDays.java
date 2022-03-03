@@ -23,6 +23,11 @@ public class TotalVacationDays {
     public TotalVacationDays() {
 
     }
+    public TotalVacationDays(String employee, int  vacationDays) {
+        this.employee = employee;
+        this.vacationDays = vacationDays;
+    }
+
 
     public TotalVacationDays(String employee, int  vacationDays, int year) {
         this.employee = employee;

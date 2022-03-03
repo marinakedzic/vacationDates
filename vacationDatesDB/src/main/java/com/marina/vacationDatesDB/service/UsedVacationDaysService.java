@@ -18,5 +18,8 @@ public class UsedVacationDaysService {
     public List <UsedVacationDays> findUsedVacationDaysByEmployee(String employee){
         return usedVacationDaysRepository.findUsedVacationDaysByEmployee(employee);
     }
+    public List <UsedVacationDays> findtotalUnusedDays(){
+        return usedVacationDaysRepository.findtotalUnusedDays();
+    }
 
 }

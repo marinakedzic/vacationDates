@@ -16,7 +16,7 @@ public class TotalVacationDaysController {
 
     @Autowired
     TotalVacationDaysService totalVacationDaysService;
-
+    //find all employees from Database
     @RequestMapping(value = {"/employees"}, method = RequestMethod.GET)
     public List<TotalVacationDays> findAllEmployees(){
         List<TotalVacationDays> listusers = totalVacationDaysService.findAllEmployees();

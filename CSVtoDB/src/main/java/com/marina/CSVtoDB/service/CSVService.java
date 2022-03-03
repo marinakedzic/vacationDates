@@ -54,7 +54,7 @@ public class CSVService {
     }
 
     public static List<TotalVacationDays> csvToTotalVacationDays(InputStream is) {
-        int year = 0;
+        int year = 2020;
         try (BufferedReader fileReader = new BufferedReader(new InputStreamReader(is, "UTF-8"));
              CSVParser csvParser = new CSVParser(fileReader,
                      CSVFormat.DEFAULT.withFirstRecordAsHeader().withHeader(HEADERs).withIgnoreHeaderCase().withTrim());) {

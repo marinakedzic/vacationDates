@@ -12,12 +12,15 @@
             <table class="container">
                 <thead>
                 <tr>
-                    <th>Total Vacation days</th>
+                    <th>Employee</th>
+                    <th>Info about vacation days</th>
 
                 </tr>
                 </thead>
                 <tbody>
-                <th th:text="${total}"></th>
+                <tr th:each="employee :${employees}">
+                    <td th:text="${employee.employee}"></td>
+                    <td><a  th:href="@{/vacationApp/employee/vacations/{id}(id=${employee.employee})}">INFO</a></td>
                 </tbody>
 
             </table>

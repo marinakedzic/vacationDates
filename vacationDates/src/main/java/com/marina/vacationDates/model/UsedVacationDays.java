@@ -1,23 +1,13 @@
-package com.marina.vacationDatesDB.model;
+package com.marina.vacationDates.model;
 
-import javax.persistence.*;
-
-@Entity
-@Table(name = "usedVacationDays")
 public class UsedVacationDays {
 
-    @Id
-    @Column(name = "id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(name = "employee")
     private String employee;
 
-    @Column(name = "vacationStartDate")
     private String vacationStartDate;
 
-    @Column(name = "vacationEndDate")
     private String vacationEndDate;
 
     public UsedVacationDays() {

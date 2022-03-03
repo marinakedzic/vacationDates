@@ -12,7 +12,12 @@ import java.util.List;
 @Repository
 public interface UsedVacationDaysRepository extends JpaRepository<UsedVacationDays, Integer>{
     @Query(value=" SELECT * FROM vacationdates.used_vacation_days"
-            + " where used_vacation_days.employee=?1 ", nativeQuery=true)
+            + " where vacationdates.used_vacation_days.employee=?1 ", nativeQuery=true)
     @Transactional
     List<UsedVacationDays> findUsedVacationDaysByEmployee (@Param("employee") String employee);
+
+    @Query(value=" SELECT * FROM vacationdates.used_vacation_days", nativeQuery=true)
+    @Transactional
+    List<UsedVacationDays> findtotalUnusedDays ();
+
 }
