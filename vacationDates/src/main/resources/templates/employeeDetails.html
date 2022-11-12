@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1><span class="blue">&lt;</span>Vacation<span class="blue">&gt;</span> <span class="yellow">Dates</span></h1>
+<div>
+    <div>
+        <div>
+            <table class="container">
+                <thead>
+                <tr>
+                    <th>Employee</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Used Days</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <td th:text="${employee}"></td>
+                    <tr th:each="vacationDays : ${totalVacationDaysByUser}">
+                        <td th:text="${vacationDays.key}"></td>
+                        <td th:text="${vacationDays.value}"></td>
+                    </tr>
+                    <tr th:each="unusedDays : ${totalUnusedDaysByUser}">
+                        <td th:text="${unusedDays.key}"></td>
+                        <td th:text="${unusedDays.value}"></td>
+                    </tr>
+                    <tr th:each="month : ${byMonth}">
+                        <td th:text="${month.key}"></td>
+                        <td th:text="${month.value}"></td>
+                    </tr>
+                <td>
+                    <tr>
+                    <tr th:each="day :${when}">
+                        <td th:text="${day.vacationStartDate}"></td>
+                        <td th:text="${day.vacationEndDate}"></td>
+                    </tr>
+                </td>
+                <td>
+                    <tr th:each="Lday :${howLong}">
+                        <td th:text="${Lday}"></td>
+                    </tr>
+                </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

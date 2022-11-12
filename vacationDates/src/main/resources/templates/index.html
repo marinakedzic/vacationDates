@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -11,14 +11,33 @@
         <div>
             <table class="container">
                 <thead>
-                <tr>
-                    <th>Total Vacation days</th>
-
-                </tr>
                 </thead>
                 <tbody>
-                <th th:text="${total}"></th>
-                <td><a  th:href="@{/vacationApp/allUsers}">SEE ALL EMPLOYEE</a></td>
+                <tr>
+                    <th>Total number of unused vacation days among all users</th>
+                    <td th:text="${totalUnusedDays}"></td>
+                </tr>
+
+                <tr>
+                    <th>Percentage of users that used all vacation days for 2021</th>
+                    <td th:text="${percentage + '&#37;'}"></td>
+                </tr>
+
+                <tr>
+                    <th>Average number of unused vacation days among all users</th>
+                    <td th:text="${average}"></td>
+                </tr>
+                <tr>
+                <th>Table containing the number of used vacation days for each month among all users</th>
+                <tr th:each="month : ${byMonth}">
+                    <td th:text="${month.key}"></td>
+                    <td th:text="${month.value}"></td>
+                </tr>
+                </tr>
+                <tr>
+                    <th>List with all users</th>
+                    <td><a th:href="@{/allUsers}">SEE ALL EMPLOYEE</a></td>
+                </tr>
                 </tbody>
 
             </table>
