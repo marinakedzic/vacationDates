@@ -2,6 +2,7 @@ package com.marina.vacationDates.controller;
 
 import com.marina.vacationDates.model.UsedVacationDays;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ import java.util.Map;
 public class EmployeeDetailsController {
 
     @GetMapping("/vacations/{employee}")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')" + " || (hasAuthority('ROLE_USER') && #employee == authentication.principal.username)")
     public ModelAndView employeeVacations (@PathVariable("employee") String employee){
 
         //Total number of vacation days for each year

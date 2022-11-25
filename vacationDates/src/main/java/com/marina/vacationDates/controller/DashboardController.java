@@ -1,16 +1,33 @@
 package com.marina.vacationDates.controller;
 import com.marina.vacationDates.model.TotalVacationDays;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.Collection;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/")
 public class DashboardController {
 
-    @RequestMapping(value = {"/"}, method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public ModelAndView method() {
+    Collection<? extends GrantedAuthority> authorities;
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    authorities = auth.getAuthorities();
+    String myRole = authorities.toArray()[0].toString();
+        if (myRole.equals("ROLE_ADMIN")) {
+            return new ModelAndView("redirect:" + "/admin");
+    }
+        else{
+            return new ModelAndView("redirect:" + "/employee/vacations/" + auth.getName());}
+    }
+
+    @RequestMapping(value = {"/admin"}, method = RequestMethod.GET)
     public ModelAndView total(){
 
         //Total number of unused vacation days among all users
